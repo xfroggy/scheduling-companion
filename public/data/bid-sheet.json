@@ -1,0 +1,271 @@
+[
+    {
+        "BidMonths": [
+            {
+                "id": "1",
+                "dateID": "JAN2019",
+                "Bases": [
+                    {
+                        "id": "7",
+                        "Sequences": [
+                            {
+                                "id": "1",
+                                "SeqNum": "542",
+                                "TTL": "18.05",
+                                "RIG": "0",
+                                "GTTL": "18..05",
+                                "DaysOp": "11",
+                                "SquenceOpDates": [
+                                    {
+                                        "OpDateID": "1",
+                                        "SequenceID": "1"
+                                    },
+                                    {
+                                        "OpDateID": "2",
+                                        "SequenceID": "1"
+                                    },
+                                    {
+                                        "OpDateID": "3",
+                                        "SequenceID": "1"
+                                    },
+                                    {
+                                        "OpDateID": "4",
+                                        "SequenceID": "1"
+                                    },
+                                    {
+                                        "OpDateID": "5",
+                                        "SequenceID": "1"
+                                    },
+                                    {
+                                        "OpDateID": "6",
+                                        "SequenceID": "1"
+                                    },
+                                    {
+                                        "OpDateID": "7",
+                                        "SequenceID": "1"
+                                    },
+                                    {
+                                        "OpDateID": "8",
+                                        "SequenceID": "1"
+                                    },
+                                    {
+                                        "OpDateID": "9",
+                                        "SequenceID": "1"
+                                    },
+                                    {
+                                        "OpDateID": "10",
+                                        "SequenceID": "1"
+                                    },
+                                    {
+                                        "OpDateID": "11",
+                                        "SequenceID": "1"
+                                    }
+                                ],
+                                "DutyPeriods": [
+                                    {
+                                        "id": "1",
+                                        "DPnum": "1",
+                                        "RPTdepLCL": "1455",
+                                        "RPTdepHBT": "1455",
+                                        "RLSarrLCL": "0700",
+                                        "RLSarrHBT": "0100",
+                                        "DPblock": "8.2",
+                                        "DPrig": "0",
+                                        "dpTOD": "10.05",
+                                        "Legs": [
+                                            {
+                                                "id": "1",
+                                                "DutyPeriodID": "1",
+                                                "DPnum": "1",
+                                                "DayNumStart": "1",
+                                                "DayNumEnd": "2",
+                                                "EQP": "83",
+                                                "FLTnum": "68",
+                                                "DEPcity": "MIA",
+                                                "DEPlcl": "1610",
+                                                "DEPhbt": "1610",
+                                                "ARRcity": "MAD",
+                                                "ARRlcl": "0630",
+                                                "ARRhbt": "0030",
+                                                "LEGblock": "8.2"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": "2",
+                                        "DPnum": "2",
+                                        "RPTdepLCL": "0845",
+                                        "RPTdepHBT": "0245",
+                                        "RLSarrLCL": "1415",
+                                        "RLSarrHBT": "1415",
+                                        "DPblock": "9.45",
+                                        "DPrig": "0",
+                                        "dpTOD": "11.3",
+                                        "Legs": [
+                                            {
+                                                "id": "2",
+                                                "DutyPeriodID": "2",
+                                                "DPnum": "2",
+                                                "DayNumStart": "3",
+                                                "DayNumEnd": "3",
+                                                "EQP": "83",
+                                                "FLTnum": "69",
+                                                "DEPcity": "MAD",
+                                                "DEPlcl": "1000",
+                                                "DEPhbt": "0400",
+                                                "ARRcity": "MIA",
+                                                "ARRlcl": "1345",
+                                                "ARRhbt": "1345",
+                                                "LEGblock": "9.45"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "id": "34",
+                                "SeqNum": "3714",
+                                "TTL": "10.29",
+                                "RIG": "0",
+                                "GTTL": "10.29",
+                                "DaysOp": "5",
+                                "SequenceOpDates": [
+                                    {
+                                        "OpDateID": "17",
+                                        "SequenceID": "34"
+                                    },
+                                    {
+                                        "OpDateID": "20",
+                                        "SequenceID": "34"
+                                    },
+                                    {
+                                        "OpDateID": "24",
+                                        "SequenceID": "34"
+                                    },
+                                    {
+                                        "OpDateID": "27",
+                                        "SequenceID": "34"
+                                    },
+                                    {
+                                        "OpDateID": "33",
+                                        "SequenceID": "34"
+                                    }
+                                ],
+                                "DutyPeriods": [
+                                    {
+                                        "id": "64",
+                                        "SequenceID": "34",
+                                        "DPNum": "1",
+                                        "RPTdepLCL": "0520",
+                                        "RPTdepHBT": "0520",
+                                        "RLSarrLCL": "1609",
+                                        "RLSarraHBT": "1509",
+                                        "DPblock": "5.34",
+                                        "DPrig": "0",
+                                        "dpTOD": "9.49",
+                                        "Legs": [
+                                            {
+                                                "id": "81",
+                                                "DutyPeriodID": "64",
+                                                "DPnum": "1",
+                                                "DayNumStart": "1",
+                                                "DayNumEnd": "1",
+                                                "EQP": "77",
+                                                "FLTnum": "1397",
+                                                "DEPcity": "MIA",
+                                                "DEPlcl": "0620",
+                                                "DEPhbt": "620",
+                                                "ARRcity": "CLT",
+                                                "ARRlcl": "0830",
+                                                "ARRhbt": "0830",
+                                                "LEGblock": "2.1"
+                                            },
+                                            {
+                                                "id": "82",
+                                                "DutyPeriodID": "64",
+                                                "DPnum": "1",
+                                                "DayNumStart": "1",
+                                                "DayNumEnd": "1",
+                                                "EQP": "89",
+                                                "FLTnum": "1971",
+                                                "DEPcity": "CLT",
+                                                "DEPlcl": "1115",
+                                                "DEPhbt": "1115",
+                                                "ARRcity": "PUJ",
+                                                "ARRlcl": "1539",
+                                                "ARRhbt": "1439",
+                                                "LEGblock": "3.24"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "id": "65",
+                                        "SequenceID": "34",
+                                        "DPnum": "2",
+                                        "RPTdepLCL": "0600",
+                                        "RPTdepHBT": "0500",
+                                        "RLSarrLCL": "1424",
+                                        "RLSarraHBT": "1424",
+                                        "DPblock": "4.55",
+                                        "DPrig": "0",
+                                        "dpTOD": "9.24",
+                                        "Legs": [
+                                            {
+                                                "id": "83",
+                                                "DutyPeriodID": "65",
+                                                "DPnum": "2",
+                                                "DayNumStart": "2",
+                                                "DayNumEnd": "2",
+                                                "EQP": "45",
+                                                "FLTnum": 1317,
+                                                "DEPcity": "PUJ",
+                                                "DEPlcl": "0700",
+                                                "DEPhbt": "0600",
+                                                "ARRcity": "MIA",
+                                                "ARRlcl": "0842",
+                                                "ARRhbt": "0842",
+                                                "LEGblock": "2.42"
+                                            },
+                                            {
+                                                "id": "84",
+                                                "DutyPeriodID": "65",
+                                                "DPnum": "2",
+                                                "DayNumStart": "2",
+                                                "DayNumEnd": "2",
+                                                "EQP": "45",
+                                                "FLTnum": "1998",
+                                                "DEPcity": "MIA",
+                                                "DEPlcl": "1040",
+                                                "DEPhbt": "1040",
+                                                "ARRcity": "NAS",
+                                                "ARRlcl": "1145",
+                                                "ARRhbt": "1145",
+                                                "LEGblock": "1.05"
+                                            },
+                                            {
+                                                "id": "85",
+                                                "DutyPeriodID": "65",
+                                                "DPnum": "2",
+                                                "DayNumStart": "2",
+                                                "DayNumEnd": "2",
+                                                "EQP": "45",
+                                                "FLTnum": "1998",
+                                                "DEPcity": "NAS",
+                                                "DEPlcl": "1246",
+                                                "DEPhbt": "1246",
+                                                "ARRcity": "MIA",
+                                                "ARRlcl": "1354",
+                                                "ARRhbt": "1354",
+                                                "LEGblock": "1.08"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

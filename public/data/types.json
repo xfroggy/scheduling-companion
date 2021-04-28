@@ -1,0 +1,27 @@
+[
+    {
+        "id": "1",
+        "Station": "MIA",
+        "Type": "Domestic"
+    },
+    {
+        "id": "2",
+        "Station": "CLT",
+        "Type": "Domestic"
+    },
+    {
+        "id": "3",
+        "Station": "PUJ",
+        "Type": "NIPD"
+    },
+    {
+        "id": "4",
+        "Station": "NAS",
+        "Type": "NIPD"
+    },
+    {
+        "id": "5",
+        "Station": "MAD",
+        "Type": "IPD"
+    }
+]
