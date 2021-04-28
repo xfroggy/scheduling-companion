@@ -1,15 +1,15 @@
-import moment from 'moment';
 import MomentUtils from '@date-io/moment';
 import Button from '@material-ui/core/Button';
 import {
     MuiPickersUtilsProvider,
     KeyboardDatePicker,
 } from '@material-ui/pickers';
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from "react-router-dom";
+import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -24,13 +24,16 @@ const useStyles = makeStyles((theme) => ({
     },
     formContainer: {
         paddingTop: "5rem"
-    }
+    },
+
+
+
+
 }));
 
-export default function HomePage() {
-
+function HomePage(props) {
     const history = useHistory();
-    const { selectedDate, setSelectedDate, selectedSequence, setSelectedSequence, selectedSequenceId, setSelectedSequenceId } = useContext(AppContext)
+    const { selectedDate, setSelectedDate, selectedSequenceId, setSelectedSequenceId } = useContext(AppContext)
 
     const handleDateChange = (date) => {
         setSelectedDate(date);
@@ -43,18 +46,18 @@ export default function HomePage() {
         history.push(`/sequence/${selectedSequenceId}`);
     }
     const classes = useStyles();
-
+    console.log(props);
     return (
         <div className={classes.fullPage}>
             <div className={classes.formContainer}>
                 <form className={classes.root} noValidate autoComplete="off">
                     <div>
                         <TextField color="secondary" required id="sequence" label="Sequence" onChange={(e) => setSelectedSequenceId(e.target.value)} />
+
                     </div>
                     <div>
                         <MuiPickersUtilsProvider utils={MomentUtils}>
                             <KeyboardDatePicker
-
                                 color="secondary"
                                 disableToolbar
                                 variant="inline"
@@ -71,8 +74,7 @@ export default function HomePage() {
                         </MuiPickersUtilsProvider>
                     </div>
                     <div>
-
-                        <Button mx="auto" onClick={formSubmit}>submit</Button>
+                        <Button mx="auto" color="primary" onClick={formSubmit}>submit</Button>
 
                     </div>
                 </form>
@@ -80,22 +82,10 @@ export default function HomePage() {
 
 
         </div >
+
     );
 }
 
 
+export default HomePage;
 
-
-
-
-// import React, { Component } from 'react';
-// import "../App.scss";
-
-// const HomePage = () => {
-//     return (
-//         <h1>HomePage</h1>
-//     )
-
-// }
-
-// export default HomePage;

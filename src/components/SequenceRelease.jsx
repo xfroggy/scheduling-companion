@@ -4,21 +4,21 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        width: "95%",
-        borderRadius: "5px 5px 0 0",
-        minWidth: 320,
+        fontFamily: "Montserrat",
+        fontWeight: "100",
+        // backgroundColor: "#01212B",
         display: "flex",
-        justifyContent: "space-between",
+        justifyContent: "flex-end",
         color: "#FFFFFF",
-        backgroundColor: "#169bf0",
-        marginTop: "1rem"
-
+        width: "95%",
+        minWidth: 320,
+        // marginTop: ".25rem"
     },
 
     title: {
         fontSize: 14,
         fontFamily: "Montserrat",
-        fontWeight: "500",
+        fontWeight: "200",
         padding: ".5rem",
         "&:last-child": {
             paddingBottom: ".5rem"

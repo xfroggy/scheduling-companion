@@ -3,25 +3,23 @@ import { AppContext } from '../context/AppContext';
 import Box from '@material-ui/core/Box';
 import FindTodaysDP from '../components/Helpers/FindTodaysDP';
 import { makeStyles } from '@material-ui/core/styles';
-import TransformTime from "./Helpers/TransformTime";
 
 const useStyles = makeStyles((theme) => ({
     root: {
         width: "95%",
-        borderRadius: "5px 5px 0 0",
+        //borderRadius: "5px 5px 5px 5px",
         minWidth: 320,
         display: "flex",
         justifyContent: "space-between",
         color: "#FFFFFF",
-        backgroundColor: "#169bf0",
+        backgroundColor: "#3f51b5",
         marginTop: "1rem"
-
     },
 
     title: {
         fontSize: 14,
         fontFamily: "Montserrat",
-        fontWeight: "500",
+        fontWeight: "600",
         padding: ".5rem",
         "&:last-child": {
             paddingBottom: ".5rem"
@@ -31,18 +29,16 @@ const useStyles = makeStyles((theme) => ({
 
 const VerifyDutyPeriod = () => {
     const classes = useStyles();
-    const { selectedDate, setSelectedDate, selectedSequence, setSelectedSequence, initialTimeStamp, setInitialTimeStamp } = useContext(AppContext)
 
     return (
         <>
             <Box className={classes.root}>
-                <FindTodaysDP />
-                {/* Did you report today at {selectedSequence.currentSequence && TransformTime(selectedSequence.currentSequence.DutyPeriods[FindTodaysDP()].RPTdepLCL)}? */}
+                <div className={classes.title}>
+                    <FindTodaysDP />
+                </div>
             </Box>
         </>
     )
 }
 
 export default VerifyDutyPeriod;
-
-//in {selectedSequence.currentSequence.DutyPeriods[FindTodaysDP()].Legs[0].DEPcity}

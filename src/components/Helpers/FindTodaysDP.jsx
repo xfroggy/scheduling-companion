@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from 'react';
-import moment from 'moment';
 import { AppContext } from '../../context/AppContext';
 import TransformTime from "./TransformTime";
 
@@ -84,11 +83,10 @@ const FindTodaysDP = () => {
     // )
 
     return (
+        <>
 
-
-        `Did you report today at ${selectedDutyPeriod.currentDutyPeriod && TransformTime(selectedDutyPeriod.currentDutyPeriod.RPTdepLCL)} in ${selectedDutyPeriod.currentDutyPeriod && selectedDutyPeriod.currentDutyPeriod.Legs[0].DEPcity}?`
-
-        // `Did you report today at ${selectedSequence.currentSequence && TransformTime(selectedSequence.currentSequence.DutyPeriods[currentDP].RPTdepLCL)} in ${selectedSequence.currentSequence && selectedSequence.currentSequence.DutyPeriods[currentDP].Legs[0].DEPcity}?`
+            Did you report today at {selectedDutyPeriod.currentDutyPeriod && TransformTime(selectedDutyPeriod.currentDutyPeriod.RPTdepLCL)} in {selectedDutyPeriod.currentDutyPeriod && selectedDutyPeriod.currentDutyPeriod.Legs[0].DEPcity}?
+        </>
 
     )
 }

@@ -4,42 +4,37 @@ import { AppContext } from '../../context/AppContext';
 import TransformTime from '../Helpers/TransformTime';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles({
     root: {
-        minWidth: 275,
+        minWidth: 320,
+        marginTop: 30,
+        marginBottom: 10
     },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
-    },
+
     title: {
         fontSize: 14,
     },
-    pos: {
-        marginBottom: 12,
-    },
+    center: {
+        display: "flex",
+        justifyContent: "center"
+    }
+
 });
 
 
 
 const DutyLimits = () => {
     const classes = useStyles();
-    const bull = <span className={classes.bullet}>•</span>;
-    const { selectedDate, setSelectedDate, selectedSequence, setSelectedSequence, initialTimeStamp, setInitialTimeStamp, selectedDutyPeriod, setSelectedDutyPeriod, typesData, setTypesData } = useContext(AppContext);
+    const { selectedDutyPeriod, typesData, } = useContext(AppContext);
 
     let international = false;
     let currentType = null;
@@ -73,31 +68,21 @@ const DutyLimits = () => {
         case true:
             dutyLimitHours = 1600;
             debrief = 30;
-            dutyLimit = moment(HBTstart + dutyLimitHours, "hh:mm").subtract(lastLegHours, "hours").subtract(lastLegMinutes, "minutes").subtract(debrief, "minutes").format("h:mm A");
-
             console.log(dutyLimit);
-
             break;
 
         case false:
             debrief = 15;
             if (HBTstart >= 500 && HBTstart < 1659) {
-
                 dutyLimitHours = 1500;
-                dutyLimit = moment(HBTstart + dutyLimitHours, "hh:mm").subtract(lastLegHours, "hours").subtract(lastLegMinutes, "minutes").subtract(debrief, "minutes").format("hh:mm A");
-
                 console.log(dutyLimit);
                 break;
             } else if (HBTstart >= 1700 && HBTstart < 2259) {
                 dutyLimitHours = 1300;
-                dutyLimit = moment(HBTstart + dutyLimitHours, "hh:mm").subtract(lastLegHours, "hours").subtract(lastLegMinutes, "minutes").subtract(debrief, "minutes").format("hh:mm A");
-
                 console.log(dutyLimit);
                 break;
             } else {
                 dutyLimitHours = 1200;
-                dutyLimit = moment(HBTstart + dutyLimitHours, "hh:mm").subtract(lastLegHours, "hours").subtract(lastLegMinutes, "minutes").subtract(debrief, "minutes").format("hh:mm A");
-
                 break;
             }
 
@@ -107,16 +92,18 @@ const DutyLimits = () => {
 
     }
 
+    dutyLimit = moment(HBTstart + dutyLimitHours, "hh:mm").subtract(lastLegHours, "hours").subtract(lastLegMinutes, "minutes").subtract(debrief, "minutes").format("h:mm A");
+
     function createData(title, value) {
         return { title, value };
     }
 
     const rows = [
-        createData('Duty period limit', dutyLimitHours),
-        createData('Duty report time (HBT)', HBTstart),
-        createData('Max release time (HBT)', (HBTstart + dutyLimitHours)),
+        createData('Duty period limit', (dutyLimitHours / 100).toString() + " hrs"),
+        createData('Duty report time (HBT)', TransformTime(selectedDutyPeriod.currentDutyPeriod.RPTdepHBT)),
+        createData('Max release time (HBT)', moment(HBTstart + dutyLimitHours, "hh:mm").format("h:mm A")),
         createData('Last leg block time', `${lastLegHours}:${lastLegMinutes}`),
-        createData('debrief time', debrief),
+        createData('debrief time', `${debrief} min`),
     ];
 
 
@@ -128,13 +115,13 @@ const DutyLimits = () => {
                     <Typography className={classes.title} color="textSecondary" gutterBottom>
                         Door Closure by
         </Typography>
-                    <Typography variant="h5" component="h2">
-                        {dutyLimit}
-                    </Typography>
+                    <div className={classes.center}>
+                        <Typography variant="h2" component="h2">
+                            {dutyLimit}
+                        </Typography>
+                    </div>
                 </CardContent>
-            </Card>
-
-
+            </Card >
 
             <TableContainer component={Paper}>
                 <Table className={classes.table} aria-label="simple table">
@@ -146,36 +133,13 @@ const DutyLimits = () => {
                                     {row.title}
                                 </TableCell>
                                 <TableCell align="right">{row.value}</TableCell>
-                                {/* <TableCell align="right">{row.fat}</TableCell>
-                                <TableCell align="right">{row.carbs}</TableCell>
-                                <TableCell align="right">{row.protein}</TableCell> */}
+
                             </TableRow>
                         ))}
                     </TableBody>
                 </Table>
             </TableContainer>
 
-            {/* <Card className={classes.root} variant="outlined">
-                <CardContent>
-                    <Typography className={classes.title} color="textSecondary" gutterBottom>
-                        Word of the Day
-    </Typography>
-                    <Typography variant="h5" component="h2">
-                        be{bull}nev{bull}o{bull}lent
-    </Typography>
-                    <Typography className={classes.pos} color="textSecondary">
-                        adjective
-    </Typography>
-                    <Typography variant="body2" component="p">
-                        well meaning and kindly.
-      <br />
-                        {'"a benevolent smile"'}
-                    </Typography>
-                </CardContent>
-                <CardActions>
-                    <Button size="small">Learn More</Button>
-                </CardActions>
-            </Card> */}
         </>
     )
 }
