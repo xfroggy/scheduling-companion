@@ -20,13 +20,34 @@ const useStyles = makeStyles({
         marginBottom: 10
     },
 
+    container: {
+        display: "flex",
+        flexDirection: "column"
+    },
+
     title: {
         fontSize: 14,
+
     },
     center: {
         display: "flex",
         justifyContent: "center"
+    },
+    rightJustify: {
+        display: "flex",
+
+        justifyContent: "flex-end"
+
+
+    },
+    leftJustify: {
+        display: "flex",
+        justifyContent: "flex-start"
+    },
+    time: {
+        fontSize: 12
     }
+
 
 });
 
@@ -48,10 +69,10 @@ const DutyLimits = () => {
     }
     );
     console.log("international is: " + international)
-    console.log("here's the time I need: " + selectedDutyPeriod.currentDutyPeriod.RPTdepHBT)
+    console.log("here's the time I need: " + selectedDutyPeriod.currentDutyPeriod.RPTdepLCL)
 
-    let HBTstart = parseInt(selectedDutyPeriod.currentDutyPeriod.RPTdepHBT);
-    console.log("dp start: ", HBTstart);
+    let LCLstart = parseInt(selectedDutyPeriod.currentDutyPeriod.RPTdepLCL);
+    console.log("dp start lcl: ", LCLstart);
     let lastLegBlock = selectedDutyPeriod.currentDutyPeriod.Legs[selectedDutyPeriod.currentDutyPeriod.Legs.length - 1].LEGblock;
     console.log("lastLegBlock: ", lastLegBlock);
     let lastLegHours = "00";
@@ -73,11 +94,11 @@ const DutyLimits = () => {
 
         case false:
             debrief = 15;
-            if (HBTstart >= 500 && HBTstart < 1659) {
+            if (LCLstart >= 500 && LCLstart < 1659) {
                 dutyLimitHours = 1500;
                 console.log(dutyLimit);
                 break;
-            } else if (HBTstart >= 1700 && HBTstart < 2259) {
+            } else if (LCLstart >= 1700 && LCLstart < 2259) {
                 dutyLimitHours = 1300;
                 console.log(dutyLimit);
                 break;
@@ -92,7 +113,7 @@ const DutyLimits = () => {
 
     }
 
-    dutyLimit = moment(HBTstart + dutyLimitHours, "hh:mm").subtract(lastLegHours, "hours").subtract(lastLegMinutes, "minutes").subtract(debrief, "minutes").format("h:mm A");
+    dutyLimit = moment(LCLstart + dutyLimitHours, "hh:mm").subtract(lastLegHours, "hours").subtract(lastLegMinutes, "minutes").subtract(debrief, "minutes").format("h:mm A");
 
     function createData(title, value) {
         return { title, value };
@@ -100,8 +121,8 @@ const DutyLimits = () => {
 
     const rows = [
         createData('Duty period limit', (dutyLimitHours / 100).toString() + " hrs"),
-        createData('Duty report time (HBT)', TransformTime(selectedDutyPeriod.currentDutyPeriod.RPTdepHBT)),
-        createData('Max release time (HBT)', moment(HBTstart + dutyLimitHours, "hh:mm").format("h:mm A")),
+        createData('Duty report time (LCL)', TransformTime(selectedDutyPeriod.currentDutyPeriod.RPTdepLCL)),
+        createData('Max release time (LCL)', moment(LCLstart + dutyLimitHours, "hh:mm").format("h:mm A")),
         createData('Last leg block time', `${lastLegHours}:${lastLegMinutes}`),
         createData('debrief time', `${debrief} min`),
     ];
@@ -111,14 +132,19 @@ const DutyLimits = () => {
     return (
         <>
             <Card className={classes.root} variant="outlined">
-                <CardContent>
-                    <Typography className={classes.title} color="textSecondary" gutterBottom>
-                        Door Closure by
-        </Typography>
+                <CardContent className={classes.container}>
+                    <div className={classes.leftJustify}>
+                        <Typography className={classes.title} color="textSecondary" gutterBottom>
+                            Door Closure by
+                    </Typography>
+                    </div>
                     <div className={classes.center}>
                         <Typography variant="h2" component="h2">
                             {dutyLimit}
                         </Typography>
+                    </div>
+                    <div className={classes.rightJustify}>
+                        <Typography className={classes.time} color="textSecondary">local time</Typography>
                     </div>
                 </CardContent>
             </Card >

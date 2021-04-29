@@ -48,9 +48,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DutyPeriod() {
     const classes = useStyles();
-    const { selectedDate, setSelectedDate, selectedSequence, setSelectedSequence, //selecteDutyPeriod, setSelectedDutyPeriod 
-        leg, setLeg
-    } = useContext(AppContext);
+    const { selectedDate, selectedSequence } = useContext(AppContext);
     console.log("Here's the selectedDate: ", moment(selectedDate).format('ddd DDMMMYY'));
 
     return (

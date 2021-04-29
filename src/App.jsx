@@ -20,7 +20,8 @@ const App = () => {
             <Navbar />
             <Switch>
               <Route exact path="/" component={HomePage} />
-              <Route path="/sequence/:sequenceId" component={DisplaySequencePage} />
+              <Route exact path="/sequence/:sequenceId" component={DisplaySequencePage} />
+              <Route path="/sequence/:sequenceId/edit" component={DisplaySequencePageEdit} />
               <Route path="/limits" component={DisplayLegalLimitsPage} />
             </Switch>
           </ThemeProvider>

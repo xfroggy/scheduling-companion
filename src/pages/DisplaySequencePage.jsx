@@ -59,7 +59,9 @@ const DisplaySequencePage = () => {
             setInitialTimeStamp(new moment());
 
             theSequence && theSequence.SequenceOpDates.find((dt) => dt.OpDateID === (selectedDate.date() + 1).toString()
-            ) ? setSelectedSequence({ currentSequence: theSequence }) : setSelectedSequence({ currentSequence: null });
+            ) ? setSelectedSequence({ currentSequence: theSequence }) : history.push(`/sequence/${sequenceId}/edit`);
+
+            //setSelectedSequence({ currentSequence: null });
 
         })();
 

@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { AppContext } from '../context/AppContext';
+import React from 'react';
 import Box from '@material-ui/core/Box';
 import FindTodaysDP from '../components/Helpers/FindTodaysDP';
 import { makeStyles } from '@material-ui/core/styles';
