@@ -6,13 +6,11 @@ const useStyles = makeStyles((theme) => ({
     root: {
         fontFamily: "Montserrat",
         fontWeight: "100",
-        // backgroundColor: "#01212B",
         display: "flex",
         justifyContent: "flex-end",
         color: "#FFFFFF",
         width: "95%",
         minWidth: 320,
-        // marginTop: ".25rem"
     },
 
     title: {
