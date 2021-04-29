@@ -15,7 +15,7 @@
                                 "RIG": "0",
                                 "GTTL": "18..05",
                                 "DaysOp": "11",
-                                "SquenceOpDates": [
+                                "SequenceOpDates": [
                                     {
                                         "OpDateID": "1",
                                         "SequenceID": "1"
