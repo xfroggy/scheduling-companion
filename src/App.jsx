@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import DisplaySequencePage from "./pages/DisplaySequencePage";
 import DisplaySequencePageEdit from "./pages/DisplaySequencePageEdit";
@@ -21,8 +21,9 @@ const App = () => {
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route exact path="/sequence/:sequenceId" component={DisplaySequencePage} />
-              <Route path="/sequence/:sequenceId/edit" component={DisplaySequencePageEdit} />
-              <Route path="/limits" component={DisplayLegalLimitsPage} />
+              <Route exact path="/sequence/:sequenceId/edit" component={DisplaySequencePageEdit} />
+              <Route exact path="/limits" component={DisplayLegalLimitsPage} />
+              <Redirect from="*" to="/" />
             </Switch>
           </ThemeProvider>
         </div>

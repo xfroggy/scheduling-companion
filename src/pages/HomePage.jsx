@@ -4,12 +4,11 @@ import {
     MuiPickersUtilsProvider,
     KeyboardDatePicker,
 } from '@material-ui/pickers';
-import React, { useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from "react-router-dom";
-import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -34,6 +33,12 @@ const useStyles = makeStyles((theme) => ({
 function HomePage(props) {
     const history = useHistory();
     const { selectedDate, setSelectedDate, selectedSequenceId, setSelectedSequenceId } = useContext(AppContext)
+
+    useEffect(() => {
+        document.title = "Scheduling Companion";
+        setSelectedDate(null);
+        setSelectedSequenceId(null);
+    }, []);
 
     const handleDateChange = (date) => {
         setSelectedDate(date);

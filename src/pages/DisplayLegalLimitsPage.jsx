@@ -42,7 +42,15 @@ const DisplayLegalLimitsPage = () => {
     return (
         <div className={classes.fullPage}>
             <Box className={classes.root}>
-                <Box >{initialTimeStamp && initialTimeStamp.format('dddd, MMMM Do YYYY')}</Box>
+                <Box >
+                    {/* Dummy data for example */}
+                     Saturday, April 17, 2021
+
+{/* Use below in real application */}
+                    {/* {initialTimeStamp && initialTimeStamp.format('dddd, MMMM Do YYYY')} */}
+
+
+                </Box>
             </Box>
             <DutyLimits />
         </div>

@@ -54,9 +54,27 @@ const useStyles = makeStyles({
 
 
 const DutyLimits = () => {
+
+    const modulusTimeClean = (rawTime) => {
+        // if duty period limit calculated sum is > 2400, moment.js will not accept. Use modulus to keep time string in 24 hour clock values 
+
+        // Store minutes
+        const storeMinutes = (rawTime).toString().slice(2);
+
+        // use modulus to keep first 2 numbers in 24 hour clock with 2 digits
+        let hourModClean = ((rawTime).toString().slice(0, -2) % 24).toString();
+        if (hourModClean.length === 1) {
+            hourModClean = "0" + hourModClean;
+        }
+
+        //return hours+minutes as 4 char string
+        return hourModClean += storeMinutes;
+    }
+
+
+
     const classes = useStyles();
     const { selectedDutyPeriod, typesData, } = useContext(AppContext);
-
     let international = false;
     let currentType = null;
     selectedDutyPeriod.currentDutyPeriod.Legs.map((leg) => {
@@ -80,8 +98,8 @@ const DutyLimits = () => {
     lastLegHours = lastLegBlock.split(".")[0];
     lastLegMinutes = lastLegBlock.split(".")[1];
 
-    console.log(lastLegHours);
-    console.log(lastLegMinutes);
+    console.log("Last leg hrs: ", lastLegHours);
+    console.log("Last leg min: ", lastLegMinutes);
     let dutyLimit;
     let dutyLimitHours;
     let debrief;
@@ -89,18 +107,18 @@ const DutyLimits = () => {
         case true:
             dutyLimitHours = 1600;
             debrief = 30;
-            console.log(dutyLimit);
+            console.log(dutyLimitHours);
             break;
 
         case false:
             debrief = 15;
             if (LCLstart >= 500 && LCLstart < 1659) {
                 dutyLimitHours = 1500;
-                console.log(dutyLimit);
+                console.log(dutyLimitHours);
                 break;
             } else if (LCLstart >= 1700 && LCLstart < 2259) {
                 dutyLimitHours = 1300;
-                console.log(dutyLimit);
+                console.log(dutyLimitHours);
                 break;
             } else {
                 dutyLimitHours = 1200;
@@ -113,9 +131,10 @@ const DutyLimits = () => {
 
     }
 
-    dutyLimit = moment(LCLstart + dutyLimitHours, "hh:mm").subtract(lastLegHours, "hours").subtract(lastLegMinutes, "minutes").subtract(debrief, "minutes").format("h:mm A");
+    dutyLimit = moment(modulusTimeClean(LCLstart + dutyLimitHours), "hh:mm").subtract(lastLegHours, "hours").subtract(lastLegMinutes, "minutes").subtract(debrief, "minutes").format("h:mm A");
 
-    function createData(title, value) {
+    // create data table layout
+    const createData = (title, value) => {
         return { title, value };
     }
 
@@ -126,6 +145,7 @@ const DutyLimits = () => {
         createData('Last leg block time', `${lastLegHours}:${lastLegMinutes}`),
         createData('debrief time', `${debrief} min`),
     ];
+
 
 
 

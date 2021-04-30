@@ -58,7 +58,7 @@ const DisplaySequencePage = () => {
             console.log("Here's theSequence value: ", theSequence);
             setInitialTimeStamp(new moment());
 
-            theSequence && theSequence.SequenceOpDates.find((dt) => dt.OpDateID === (selectedDate.date() + 1).toString()
+            theSequence && selectedDate && theSequence.SequenceOpDates.find((dt) => dt.OpDateID === (selectedDate.date() + 1).toString()
             ) ? setSelectedSequence({ currentSequence: theSequence }) : history.push(`/sequence/${sequenceId}/edit`);
 
             //setSelectedSequence({ currentSequence: null });
@@ -71,7 +71,13 @@ const DisplaySequencePage = () => {
     return (
         <>
             <Box className={classes.root}>
-                <Box >{initialTimeStamp && initialTimeStamp.format('dddd, MMMM Do YYYY')}</Box>
+                <Box >
+                    {/* Dummy data for example */}
+                    Saturday, April 17, 2021
+
+                    {/* Use below in real application */}
+                    {/* {initialTimeStamp && initialTimeStamp.format('dddd, MMMM Do YYYY')} */}
+                </Box>
 
             </Box>
             <DutyPeriod />
