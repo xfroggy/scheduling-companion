@@ -1,4 +1,4 @@
-<img src="https://user-images.githubusercontent.com/23199980/116780270-94c1de80-aa49-11eb-8baa-b649880cf578.png" width="15%"></img> 
+<img src="https://user-images.githubusercontent.com/23199980/116780270-94c1de80-aa49-11eb-8baa-b649880cf578.png" width="50%"></img> 
 # Scheduling Companion Flight Attendant Legality Calculator
 
 Calculate exact flight attendant duty limits based on current time stamp, flight sequence look up and flight sequence origination date.
