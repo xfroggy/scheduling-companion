@@ -3,7 +3,7 @@ import moment from 'moment';
 import { AppContext } from '../context/AppContext';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
-import LegCard from "../components/LegCard";
+import LegCard from "./LegCard";
 import TransformTime from "./Helpers/TransformTime";
 
 const useStyles = makeStyles((theme) => ({
@@ -42,22 +42,19 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-// const convertTime = (timeString) => {
-//     timeString.splice(-2,":")
-// }
 
-export default function DutyPeriod() {
+export default function DutyPeriods() {
     const classes = useStyles();
     const { selectedDate, selectedSequence } = useContext(AppContext);
-    console.log("Here's the selectedDate: ", moment(selectedDate).format('ddd DDMMMYY'));
+
+    // for each duty period, render a duty period header, then flight legs
 
     return (
         <div className="dutyPeriod">
-
-
             {selectedSequence.currentSequence && selectedSequence.currentSequence.DutyPeriods.map((dp) => {
                 return (
                     <>
+                        {/* Render Duty Period header */}
                         <Box className={classes.root}>
                             <div className={classes.title}>
                                 SEQ {selectedSequence.currentSequence.SeqNum}
@@ -71,11 +68,10 @@ export default function DutyPeriod() {
                                     TransformTime(dp.RPTdepLCL)
                                 }
                             </div>
-
                         </Box>
 
+                        {/* Render duty period flight legs */}
                         {dp.Legs.map((leg) => {
-                            console.log("Here's the leg: ", leg);
                             return <LegCard leg={leg} />
                         })}
 

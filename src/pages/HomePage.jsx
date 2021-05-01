@@ -25,14 +25,14 @@ const useStyles = makeStyles((theme) => ({
         paddingTop: "5rem"
     },
 
-
-
-
 }));
 
 function HomePage(props) {
     const history = useHistory();
     const { selectedDate, setSelectedDate, selectedSequenceId, setSelectedSequenceId } = useContext(AppContext)
+
+
+    //Set the title and reset the Date and SequenceId on load
 
     useEffect(() => {
         document.title = "Scheduling Companion";

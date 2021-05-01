@@ -27,7 +27,6 @@ const useStyles = makeStyles({
 
     title: {
         fontSize: 14,
-
     },
     center: {
         display: "flex",
@@ -35,10 +34,7 @@ const useStyles = makeStyles({
     },
     rightJustify: {
         display: "flex",
-
         justifyContent: "flex-end"
-
-
     },
     leftJustify: {
         display: "flex",
@@ -56,6 +52,7 @@ const useStyles = makeStyles({
 const DutyLimits = () => {
 
     const modulusTimeClean = (rawTime) => {
+
         // if duty period limit calculated sum is > 2400, moment.js will not accept. Use modulus to keep time string in 24 hour clock values 
 
         // Store minutes
@@ -77,29 +74,32 @@ const DutyLimits = () => {
     const { selectedDutyPeriod, typesData, } = useContext(AppContext);
     let international = false;
     let currentType = null;
-    selectedDutyPeriod.currentDutyPeriod.Legs.map((leg) => {
-        console.log("Dep from: " + leg.DEPcity)
 
+    // Map through legs and find what 'type' each is (domestic or international)
+
+    selectedDutyPeriod.currentDutyPeriod.Legs.map((leg) => {
         currentType = typesData.find((type) => type.Station === leg.DEPcity)
-        console.log("type is: " + currentType.Type);
         if (currentType.Type !== "Domestic") { international = true }
 
     }
     );
-    console.log("international is: " + international)
-    console.log("here's the time I need: " + selectedDutyPeriod.currentDutyPeriod.RPTdepLCL)
 
+    // Get local time for report
     let LCLstart = parseInt(selectedDutyPeriod.currentDutyPeriod.RPTdepLCL);
-    console.log("dp start lcl: ", LCLstart);
+
+    // Get block time for last leg of duty period
     let lastLegBlock = selectedDutyPeriod.currentDutyPeriod.Legs[selectedDutyPeriod.currentDutyPeriod.Legs.length - 1].LEGblock;
-    console.log("lastLegBlock: ", lastLegBlock);
+
     let lastLegHours = "00";
     let lastLegMinutes = "00";
+
+    // block time is a stored as a float and doesn't reflect actual hours and minutes.  Split into separate hours and minutes variables for block time.
+
     lastLegHours = lastLegBlock.split(".")[0];
     lastLegMinutes = lastLegBlock.split(".")[1];
 
-    console.log("Last leg hrs: ", lastLegHours);
-    console.log("Last leg min: ", lastLegMinutes);
+    // calculate duty limit and debrief time based on type and first leg report time
+
     let dutyLimit;
     let dutyLimitHours;
     let debrief;
@@ -131,13 +131,16 @@ const DutyLimits = () => {
 
     }
 
+    // convert dutyLimit into h:mm A format
+
     dutyLimit = moment(modulusTimeClean(LCLstart + dutyLimitHours), "hh:mm").subtract(lastLegHours, "hours").subtract(lastLegMinutes, "minutes").subtract(debrief, "minutes").format("h:mm A");
 
-    // create data table layout
+    // Create data table layout
     const createData = (title, value) => {
         return { title, value };
     }
 
+    // Add data to table
     const rows = [
         createData('Duty period limit', (dutyLimitHours / 100).toString() + " hrs"),
         createData('Duty report time (LCL)', TransformTime(selectedDutyPeriod.currentDutyPeriod.RPTdepLCL)),
@@ -147,7 +150,7 @@ const DutyLimits = () => {
     ];
 
 
-
+    // Render table data to page
 
     return (
         <>
@@ -179,13 +182,11 @@ const DutyLimits = () => {
                                     {row.title}
                                 </TableCell>
                                 <TableCell align="right">{row.value}</TableCell>
-
                             </TableRow>
                         ))}
                     </TableBody>
                 </Table>
             </TableContainer>
-
         </>
     )
 }

@@ -11,9 +11,6 @@ export const ContextProvider = ({ children }) => {
     const [selectedDutyPeriod, setSelectedDutyPeriod] = useState({
         currentDutyPeriod: null
     });
-
-
-
     const [selectedSequenceId, setSelectedSequenceId] = useState(null);
     const [leg, setLeg] = useState(null);
     const [initialTimeStamp, setInitialTimeStamp] = useState(null);

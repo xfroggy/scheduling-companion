@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import DutyLimits from "../components/Helpers/DutyLimits";
 
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
 
     root: {
 
@@ -19,14 +19,7 @@ const useStyles = makeStyles((theme) => ({
         color: "#FFFFFF",
         padding: "1rem",
     },
-    paddingTop: {
-        paddingTop: ".5rem"
-    },
-    yesButton: {
-        '& > *': {
-            margin: theme.spacing(1),
-        },
-    },
+
     fullPage: {
         height: "100vh",
     },
@@ -37,19 +30,17 @@ const useStyles = makeStyles((theme) => ({
 
 const DisplayLegalLimitsPage = () => {
     const classes = useStyles();
-    const { initialTimeStamp, } = useContext(AppContext)
+    const { initialTimeStamp, } = useContext(AppContext) // currently not used, but when comments below are removed, it will be used to render current date
 
     return (
         <div className={classes.fullPage}>
             <Box className={classes.root}>
                 <Box >
-                    {/* Dummy data for example */}
-                     Saturday, April 17, 2021
+                    {/* Dummy data for walk through example */}
+                     Monday, May 17, 2021
 
-{/* Use below in real application */}
+                    {/* Use below in real application */}
                     {/* {initialTimeStamp && initialTimeStamp.format('dddd, MMMM Do YYYY')} */}
-
-
                 </Box>
             </Box>
             <DutyLimits />

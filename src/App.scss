@@ -1,14 +1,12 @@
 @use './partials/partial' as *;
 
 .display-sequence {
-  //   background-color: green;
+  
   &__container {
     height: 100%;
     width: 100%;
-    // background: linear-gradient(0deg, #00000088 30%, #ffffff44 100%);
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
       url("./assets/darkbackground.jpg");
-    //background-image: url("./assets/darkbackground.jpg");
     @include img-no-repeat-cover;
 
     display: flex;

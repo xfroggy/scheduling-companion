@@ -2,9 +2,8 @@ import React, { useContext, useEffect } from 'react';
 import { AppContext } from '../context/AppContext';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
-import "./DisplaySequencePage.scss";
 import moment from 'moment';
-import DutyPeriod from "../components/DutyPeriod";
+import DutyPeriods from "../components/DutyPeriods";
 import SequenceRelease from "../components/SequenceRelease";
 import VerifyDutyPeriod from "../components/VerifyDutyPeriod";
 import { useParams } from "react-router-dom";
@@ -32,12 +31,10 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-
-
 const DisplaySequencePage = () => {
     const history = useHistory();
     const { sequenceId } = useParams();
-    const { selectedDate, setSelectedSequence, initialTimeStamp, setInitialTimeStamp } = useContext(AppContext)
+    const { selectedDate, setSelectedSequence, setInitialTimeStamp } = useContext(AppContext)
 
     const yesRedirect = () => {
         history.push(`/limits`);
@@ -46,22 +43,25 @@ const DisplaySequencePage = () => {
 
     useEffect(() => {
         (async function getSequenceData() {
+
+            // read data from json file
+
             const response = await fetch("/data/bid-sheet.json");
             const data = await response.json();
 
-            console.log(data[0].BidMonths[0].Bases[0].Sequences);
+            // search sequences for user entered sequence
 
             const sequences = data[0].BidMonths[0].Bases[0].Sequences;
-            console.log("Here are sequences 2: ", sequences);
             const theSequence = sequences.find((sequence) => sequence.SeqNum === sequenceId.toString());
 
-            console.log("Here's theSequence value: ", theSequence);
+            // set timestamp to get current date
+
             setInitialTimeStamp(new moment());
+
+            //set current sequence to state if it exists and operating date exists or redirect
 
             theSequence && selectedDate && theSequence.SequenceOpDates.find((dt) => dt.OpDateID === (selectedDate.date() + 1).toString()
             ) ? setSelectedSequence({ currentSequence: theSequence }) : history.push(`/sequence/${sequenceId}/edit`);
-
-            //setSelectedSequence({ currentSequence: null });
 
         })();
 
@@ -72,15 +72,15 @@ const DisplaySequencePage = () => {
         <>
             <Box className={classes.root}>
                 <Box >
-                    {/* Dummy data for example */}
-                    Saturday, April 17, 2021
+                    {/* Dummy data for walk through example */}
+                    Monday, May 17, 2021
 
-                    {/* Use below in real application */}
+                    {/* Use below in real time application */}
                     {/* {initialTimeStamp && initialTimeStamp.format('dddd, MMMM Do YYYY')} */}
                 </Box>
 
             </Box>
-            <DutyPeriod />
+            <DutyPeriods />
             <div className={classes.sequenceContainer}>
                 <SequenceRelease />
             </div>

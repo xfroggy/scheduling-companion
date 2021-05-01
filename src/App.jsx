@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { withStyles } from "@material-ui/core/styles";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import DisplaySequencePage from "./pages/DisplaySequencePage";

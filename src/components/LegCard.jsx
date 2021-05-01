@@ -1,5 +1,4 @@
-import React, { useContext, useEffect } from 'react';
-import { AppContext } from '../context/AppContext';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -71,9 +70,8 @@ const useStyles = makeStyles({
 
 export default function LegCard(props) {
     const classes = useStyles();
-    const { selectedDate, setSelectedDate, selectedSequence, setSelectedSequence, //selectedDutyPeriod, setSelectedDutyPeriod 
-        leg, setLeg
-    } = useContext(AppContext);
+
+    // Build the flight leg render
 
     return (
 
@@ -92,7 +90,6 @@ export default function LegCard(props) {
                         </Typography>
                         <Typography className={classes.hour}>
                             {TransformTime(props.leg.DEPlcl)}
-
                         </Typography>
                         <Typography className={classes.flight__city}>
                             {props.leg.DEPcity}
