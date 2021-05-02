@@ -1,4 +1,4 @@
-<img src="https://user-images.githubusercontent.com/23199980/116780270-94c1de80-aa49-11eb-8baa-b649880cf578.png" width="50%"></img> 
+<img src="https://user-images.githubusercontent.com/23199980/116815331-fe65e980-ab2a-11eb-9e80-8f2afb34cd7d.jpg" width="50%"></img> 
 
 # Scheduling Companion for Flight Attendants
 
