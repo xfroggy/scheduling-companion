@@ -4,7 +4,7 @@
 
 Calculate exact flight attendant duty limits based on current time stamp, flight sequence look up and flight sequence origination date.
 
-<img src="https://user-images.githubusercontent.com/23199980/116765012-2ea96d00-a9f1-11eb-8593-c187a5bababc.png" width="30%"/> <img src="https://user-images.githubusercontent.com/23199980/116765019-3537e480-a9f1-11eb-9569-1c1e8a16ea1d.png" width="30%"/ > <img src="https://user-images.githubusercontent.com/23199980/116765064-62849280-a9f1-11eb-9ef8-428126103846.png" width="30%"/>
+<img src="https://user-images.githubusercontent.com/23199980/116765012-2ea96d00-a9f1-11eb-8593-c187a5bababc.png" width="30%"/> <img src="https://user-images.githubusercontent.com/23199980/116765019-3537e480-a9f1-11eb-9569-1c1e8a16ea1d.png" width="30%"/> <img src="https://user-images.githubusercontent.com/23199980/116765064-62849280-a9f1-11eb-9ef8-428126103846.png" width="30%"/>
 
 Flight attendant schedules are made up of sequences that range in 1-4 days in length and have one or more duty periods each with one or more flight legs.  The clock starts ticking on a flight attendant's duty day in terms of legal limits when they report for their first flight of the day.  Depending on the location (international vs domestic) and report time, different duty period limits exist.  
 
@@ -54,5 +54,5 @@ Open http://localhost:3000 to view application in the browser.
 
 - The Educators, Teaching Assistants and staff at BrainStation, Miami - thank you for your endless support, advice and encouragement!
 
-<img src="https://user-images.githubusercontent.com/23199980/116828361-393c4180-ab6c-11eb-8b6f-b2de81c9482d.png" width="15%"/> <img src="https://user-images.githubusercontent.com/23199980/116828363-3ccfc880-ab6c-11eb-8389-6b2dac4a849c.png" width="15%"/>
+<img src="https://user-images.githubusercontent.com/23199980/116828361-393c4180-ab6c-11eb-8b6f-b2de81c9482d.png" width="15%"/> <img src="https://user-images.githubusercontent.com/23199980/116828363-3ccfc880-ab6c-11eb-8389-6b2dac4a849c.png" width="15%"/> <img src="https://user-images.githubusercontent.com/23199980/116828780-e57f2780-ab6e-11eb-8c6e-ac36acc1d60a.png" width="15%"/>
 
