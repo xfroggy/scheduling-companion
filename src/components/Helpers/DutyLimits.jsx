@@ -56,7 +56,8 @@ const DutyLimits = () => {
         // if duty period limit calculated sum is > 2400, moment.js will not accept. Use modulus to keep time string in 24 hour clock values 
 
         // Store minutes
-        const storeMinutes = (rawTime).toString().slice(2);
+        const storeMinutes = (rawTime).toString().slice(2)
+
 
         // use modulus to keep first 2 numbers in 24 hour clock with 2 digits
         let hourModClean = ((rawTime).toString().slice(0, -2) % 24).toString();
@@ -140,7 +141,7 @@ const DutyLimits = () => {
     const rows = [
         createData('Duty period limit', (dutyLimitHours / 100).toString() + " hrs"),
         createData('Duty report time (LCL)', TransformTime(selectedDutyPeriod.currentDutyPeriod.RPTdepLCL)),
-        createData('Max release time (LCL)', moment(LCLstart + dutyLimitHours, "hh:mm").format("h:mm A")),
+        createData('Max release time (LCL)', moment(modulusTimeClean(LCLstart + dutyLimitHours), "hh:mm").format("h:mm A")),
         createData('Last leg block time', `${lastLegHours}:${lastLegMinutes}`),
         createData('debrief time', `${debrief} min`),
     ];
