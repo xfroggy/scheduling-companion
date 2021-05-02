@@ -40,8 +40,8 @@ export default function MenuAppBar() {
 
             <AppBar position="static">
                 <Toolbar className={classes.navbar}>
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                        <img src={logo} alt="logo" className={classes.logo} onClick={handleLogo} />
+                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={handleLogo}>
+                        <img src={logo} alt="logo" className={classes.logo} />
                     </IconButton>
                     <Typography variant="h6" className={classes.title}>
                         Scheduling Companion

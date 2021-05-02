@@ -38,7 +38,7 @@ function HomePage(props) {
         document.title = "Scheduling Companion";
         setSelectedDate(null);
         setSelectedSequenceId(null);
-    }, []);
+    }, [setSelectedDate, setSelectedSequenceId]);
 
     const handleDateChange = (date) => {
         setSelectedDate(date);
@@ -51,7 +51,7 @@ function HomePage(props) {
         history.push(`/sequence/${selectedSequenceId}`);
     }
     const classes = useStyles();
-    console.log(props);
+
     return (
         <div className={classes.fullPage}>
             <div className={classes.formContainer}>
@@ -78,8 +78,8 @@ function HomePage(props) {
                             />
                         </MuiPickersUtilsProvider>
                     </div>
-                    <div>
-                        <Button mx="auto" color="primary" onClick={formSubmit}>submit</Button>
+                    <div onClick={formSubmit}>
+                        <Button mx="auto" color="primary" >submit</Button>
 
                     </div>
                 </form>

@@ -1,5 +1,5 @@
-<img src="https://user-images.githubusercontent.com/23199980/116780270-94c1de80-aa49-11eb-8baa-b649880cf578.png" width="15%"></img> 
-# Scheduling Companion Flight Attendant Legality Calculator
+<img src="https://user-images.githubusercontent.com/23199980/116780270-94c1de80-aa49-11eb-8baa-b649880cf578.png" width="50%"></img> 
+# Scheduling Companion for Flight Attendants
 
 Calculate exact flight attendant duty limits based on current time stamp, flight sequence look up and flight sequence origination date.
 
@@ -16,10 +16,11 @@ The current front end project uses a subset of the data from the backend databas
 1. Full working test example: use sample sequence #3714 operating on 16th or #542 operating on 2nd.
 2. Test working sequence but operating date not found: use sequence 3714 operating on 15th.
 
+Design is for mobile layout as app will be for use exclusively on mobile devices.
 
 ## Deployment
 
-Click to view working version at: https://schedule-companion.netlify.app/
+Click to view current deployed version at: https://schedule-companion.netlify.app/
 
 ## Front end Built With
 
@@ -42,7 +43,7 @@ $ npm install
 $ npm start
 
 Runs the app in the development mode.
-Open http://localhost:3000 to view it in the browser.
+Open http://localhost:3000 to view application in the browser.
 
 ## Authors
 

@@ -5,6 +5,7 @@ import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import LegCard from "./LegCard";
 import TransformTime from "./Helpers/TransformTime";
+import { generateKey } from 'fast-key-generator';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -50,12 +51,12 @@ export default function DutyPeriods() {
     // for each duty period, render a duty period header, then flight legs
 
     return (
-        <div className="dutyPeriod">
+        <div key={generateKey()} className="dutyPeriod">
             {selectedSequence.currentSequence && selectedSequence.currentSequence.DutyPeriods.map((dp) => {
                 return (
                     <>
                         {/* Render Duty Period header */}
-                        <Box className={classes.root}>
+                        <Box key={dp.id} className={classes.root}>
                             <div className={classes.title}>
                                 SEQ {selectedSequence.currentSequence.SeqNum}
                             </div>
@@ -72,7 +73,7 @@ export default function DutyPeriods() {
 
                         {/* Render duty period flight legs */}
                         {dp.Legs.map((leg) => {
-                            return <LegCard leg={leg} />
+                            return <LegCard key={leg.id} leg={leg} />
                         })}
 
                     </>

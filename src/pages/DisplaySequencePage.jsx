@@ -29,6 +29,9 @@ const useStyles = makeStyles((theme) => ({
             margin: theme.spacing(1),
         },
     },
+    fullPage: {
+        minHeight: "100vh",
+    },
 }));
 
 const DisplaySequencePage = () => {
@@ -65,11 +68,11 @@ const DisplaySequencePage = () => {
 
         })();
 
-    }, [])
+    }, [history, selectedDate, sequenceId, setInitialTimeStamp, setSelectedSequence])
 
     const classes = useStyles();
     return (
-        <>
+        <div className={classes.fullPage}>
             <Box className={classes.root}>
                 <Box >
                     {/* Dummy data for walk through example */}
@@ -90,7 +93,7 @@ const DisplaySequencePage = () => {
             <div className={classes.yesButton}>
                 <Button color="primary" onClick={yesRedirect}>CONFIRM</Button>
             </div>
-        </>
+        </div>
     )
 }
 

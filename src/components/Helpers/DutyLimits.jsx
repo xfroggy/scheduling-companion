@@ -80,7 +80,7 @@ const DutyLimits = () => {
     selectedDutyPeriod.currentDutyPeriod.Legs.map((leg) => {
         currentType = typesData.find((type) => type.Station === leg.DEPcity)
         if (currentType.Type !== "Domestic") { international = true }
-
+        return international;
     }
     );
 
@@ -107,18 +107,15 @@ const DutyLimits = () => {
         case true:
             dutyLimitHours = 1600;
             debrief = 30;
-            console.log(dutyLimitHours);
             break;
 
         case false:
             debrief = 15;
             if (LCLstart >= 500 && LCLstart < 1659) {
                 dutyLimitHours = 1500;
-                console.log(dutyLimitHours);
                 break;
             } else if (LCLstart >= 1700 && LCLstart < 2259) {
                 dutyLimitHours = 1300;
-                console.log(dutyLimitHours);
                 break;
             } else {
                 dutyLimitHours = 1200;
@@ -126,7 +123,6 @@ const DutyLimits = () => {
             }
 
         default:
-            console.log("error");
             break;
 
     }
