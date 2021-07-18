@@ -69,8 +69,6 @@ const DutyLimits = () => {
         return hourModClean += storeMinutes;
     }
 
-
-
     const classes = useStyles();
     const { selectedDutyPeriod, typesData, } = useContext(AppContext);
     let international = false;

@@ -4,6 +4,7 @@ import React, { createContext, useState } from 'react'
 export const AppContext = createContext()
 
 export const ContextProvider = ({ children }) => {
+    const [manDEPcity, setManDEPcity] = useState(null);
     const [selectedDate, setSelectedDate] = useState(null);
     const [selectedSequence, setSelectedSequence] = useState(
         { currentSequence: null }
@@ -16,7 +17,13 @@ export const ContextProvider = ({ children }) => {
     const [initialTimeStamp, setInitialTimeStamp] = useState(null);
     const [typesData, setTypesData] = useState(null);
     return (
-        <AppContext.Provider value={{ selectedDate, setSelectedDate, selectedSequence, setSelectedSequence, selectedDutyPeriod, setSelectedDutyPeriod, selectedSequenceId, setSelectedSequenceId, leg, setLeg, initialTimeStamp, setInitialTimeStamp, typesData, setTypesData }}>
+        <AppContext.Provider value={{
+            manDEPcity, setManDEPcity,
+            selectedDate, setSelectedDate,
+            selectedSequence, setSelectedSequence, selectedDutyPeriod, setSelectedDutyPeriod, selectedSequenceId, setSelectedSequenceId,
+            leg, setLeg,
+            initialTimeStamp, setInitialTimeStamp, typesData, setTypesData
+        }}>
             {children}
         </AppContext.Provider>
     )

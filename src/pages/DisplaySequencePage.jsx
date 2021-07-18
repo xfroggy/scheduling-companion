@@ -60,7 +60,6 @@ const DisplaySequencePage = () => {
             // set timestamp to get current date
 
             setInitialTimeStamp(new moment());
-
             //set current sequence to state if it exists and operating date exists or redirect
 
             theSequence && selectedDate && theSequence.SequenceOpDates.find((dt) => dt.OpDateID === (selectedDate.date() + 1).toString()
