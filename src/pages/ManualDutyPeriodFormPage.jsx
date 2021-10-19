@@ -1,9 +1,5 @@
 import MomentUtils from '@date-io/moment';
 import Button from '@material-ui/core/Button';
-import {
-    MuiPickersUtilsProvider,
-    KeyboardDatePicker,
-} from '@material-ui/pickers';
 import React, { useEffect, useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 import TextField from '@material-ui/core/TextField';
@@ -27,9 +23,9 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-function HomePage(props) {
+function ManualDutyPeriodFormPage(props) {
     const history = useHistory();
-    const { selectedDate, setSelectedDate, selectedSequenceId, setSelectedSequenceId } = useContext(AppContext)
+    const { selectedDate, setSelectedDate, selectedSequenceId, setSelectedSequenceId, selectedDutyPeriod, setSelectedDutyPeriod, manDEPtime, setManDEPtime, manDEPcity, setManDEPcity } = useContext(AppContext)
 
 
     //Set the title and reset the Date and SequenceId on load
@@ -38,11 +34,13 @@ function HomePage(props) {
         document.title = "Scheduling Companion";
         setSelectedDate(null);
         setSelectedSequenceId(null);
-    }, [setSelectedDate, setSelectedSequenceId]);
+        setSelectedDutyPeriod(null)
+    }, [setSelectedDate, setSelectedSequenceId, setSelectedDutyPeriod]);
 
     const handleDateChange = (date) => {
         setSelectedDate(date);
     };
+
 
 
     const formSubmit = (event) => {
@@ -56,27 +54,17 @@ function HomePage(props) {
             <div className={classes.formContainer}>
                 <form className={classes.root} noValidate autoComplete="off">
                     <div>
-                        <TextField color="secondary" required id="sequence" label="Sequence" onChange={(e) => setSelectedSequenceId(e.target.value)} />
+                        <TextField color="secondary" required id="sequence" label="Sequence" onChange={(e) => {
+                            setSelectedSequenceId(e.target.value);
+                        }
+                        } />
 
                     </div>
                     <div>
-                        <MuiPickersUtilsProvider utils={MomentUtils}>
-                            <KeyboardDatePicker
-                                color="secondary"
-                                disableToolbar
-                                variant="inline"
-                                format="MM/DD/yyyy"
-                                margin="normal"
-                                id="date-picker-inline"
-                                label="Sequence START date"
-                                value={selectedDate}
-                                onChange={handleDateChange}
-                                KeyboardButtonProps={{
-                                    'aria-label': 'change date',
-                                }}
-                            />
-                        </MuiPickersUtilsProvider>
+                        <TextField color="secondary" required id="DEPtime" label="Current Duty Period:  departure time for first leg" onChange={(e) => setManDEPtime(e.target.value)} />
                     </div>
+
+
                     <div onClick={formSubmit}>
                         <Button mx="auto" color="primary" >submit</Button>
 
@@ -91,5 +79,5 @@ function HomePage(props) {
 }
 
 
-export default HomePage;
+export default ManualDutyPeriodFormPage;
 
