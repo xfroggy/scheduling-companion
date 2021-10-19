@@ -8,7 +8,6 @@ const TransformTime = (timeString) => {
     timeString = timeString.join('');
     timeString = moment(timeString, "HH:mm");
     return timeString.format("h:mm A");
-
 }
 
 export default TransformTime;
