@@ -5,6 +5,7 @@ export const AppContext = createContext()
 
 export const ContextProvider = ({ children }) => {
     const [manDEPcity, setManDEPcity] = useState(null);
+    const [manDEPtime, setManDEPtime] = useState(null);
     const [selectedDate, setSelectedDate] = useState(null);
     const [selectedSequence, setSelectedSequence] = useState(
         { currentSequence: null }
@@ -19,6 +20,7 @@ export const ContextProvider = ({ children }) => {
     return (
         <AppContext.Provider value={{
             manDEPcity, setManDEPcity,
+            manDEPtime, setManDEPtime,
             selectedDate, setSelectedDate,
             selectedSequence, setSelectedSequence, selectedDutyPeriod, setSelectedDutyPeriod, selectedSequenceId, setSelectedSequenceId,
             leg, setLeg,

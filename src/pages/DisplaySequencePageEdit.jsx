@@ -1,5 +1,4 @@
-import React, { useContext, useEffect } from 'react';
-import { AppContext } from '../context/AppContext';
+import React from 'react';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -8,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
-import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -48,21 +46,8 @@ const DisplaySequencePageEdit = () => {
     const classes = useStyles();
     const history = useHistory();
 
-    const { manDEPcity, setManDEPcity, selectedDate, selectedSequence, setSelectedSequence, initialTimeStamp, selectedDutyPeriod, selectedSequenceId, leg, typesData } = useContext(AppContext)
-
     const yesRedirect = () => {
         history.push(`/`);
-    }
-
-    useEffect(() => {
-        (async function getSequenceToAlter() {
-
-        })
-    })
-
-    const formSubmit = (event) => {
-        event.preventDefault();
-        history.push(`/sequence/${selectedSequenceId}`);
     }
     return (
         <div className={classes.fullPage}>
@@ -97,22 +82,6 @@ const DisplaySequencePageEdit = () => {
                         </Typography>
 
                         </CardContent>
-                        <Divider />
-
-                        {/* This is where I've started editing */}
-                        <form className={classes.root} noValidate autoComplete="off">
-                            <div>
-                                <TextField color="secondary" required id="station" label="Station" onChange={(e) => setManDEPcity(e.target.value)} />
-
-                            </div>
-
-                            <div onClick={formSubmit}>
-                                <Button mx="auto" color="primary" >submit</Button>
-
-                            </div>
-                        </form>
-                        {/* this is where I've stopped */}
-
                     </Card>
                     <Divider className={classes.thick} />
                     <Typography className={classes.title}>
