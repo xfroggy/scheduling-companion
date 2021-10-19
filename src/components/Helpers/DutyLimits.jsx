@@ -44,7 +44,6 @@ const useStyles = makeStyles({
         fontSize: 12
     }
 
-
 });
 
 
@@ -154,7 +153,7 @@ const DutyLimits = () => {
                     <div className={classes.leftJustify}>
                         <Typography className={classes.title} color="textSecondary" gutterBottom>
                             Door Closure by
-                    </Typography>
+                        </Typography>
                     </div>
                     <div className={classes.center}>
                         <Typography variant="h2" component="h2">
