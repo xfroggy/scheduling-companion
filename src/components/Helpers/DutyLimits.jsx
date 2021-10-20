@@ -43,7 +43,6 @@ const useStyles = makeStyles({
     time: {
         fontSize: 12
     }
-
 });
 
 
